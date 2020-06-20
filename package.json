@@ -2,25 +2,54 @@
     "name": "vscode-glyphs",
     "displayName": "vscode-glyphs",
     "description": "Glyphs support for VS Code",
-    "author": "Xiangdong Zeng",
     "version": "0.0.1",
+    "publisher": "xiangdong-zeng",
+    "author": {
+        "name": "Xiangdong Zeng"
+    },
+    "readme": "README.md",
+    "icon": "icon.png",
+    "license": "MIT",
+    "homepage": "https://github.com/stone-zeng/vscode-glyphs",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/stone-zeng/vscode-glyphs.git"
+    },
+    "bugs": {
+        "url": "https://github.com/stone-zeng/vscode-glyphs/issues"
+    },
     "engines": {
         "vscode": "^1.46.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "keywords": [
+        "glyphs",
+        "font"
+    ],
     "contributes": {
-        "languages": [{
-            "id": "glyphs",
-            "aliases": ["Glyphs File Format", "glyphs"],
-            "extensions": [".glyphs",".glyph",".plist"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "glyphs",
-            "scopeName": "source.plist.glyphs",
-            "path": "./syntaxes/glyphs.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "glyphs",
+                "aliases": [
+                    "Glyphs File Format",
+                    "glyphs"
+                ],
+                "extensions": [
+                    ".glyphs",
+                    ".glyph",
+                    ".plist"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "glyphs",
+                "scopeName": "source.plist.glyphs",
+                "path": "./syntaxes/glyphs.tmLanguage.json"
+            }
+        ]
     }
 }
