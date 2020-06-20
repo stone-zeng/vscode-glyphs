@@ -1,0 +1,118 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Glyphs File Format",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#properties"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#unquoted-strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.glyphs"
+				},
+				{
+					"match": "//.*$\\n?",
+					"name": "comment.line.double-slash.glyphs"
+				}
+			]
+		},
+		"features": {
+			"patterns": [
+				{
+					"begin": "\\b(code)\\s*(=)\\s*(\")",
+					"end": "(\")",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.tag.glyphs"
+						},
+						"2": {
+							"name": "keyword.operator.glyphs"
+						},
+						"3": {
+							"name": "punctuation.quote.beginning.glyphs"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.quote.end.glyphs"
+						}
+					},
+					"name": "meta.embedded.block.afdko.glyphs",
+					"patterns": [
+						{
+							"include": "source.AFDKO"
+						}
+					]
+				}
+			]
+		},
+		"properties": {
+			"patterns": [
+				{
+					"match": "^\".+?\"(?=\\s*=)",
+					"name": "entity.name.tag.quoted.glyphs"
+				},
+				{
+					"match": "^[\\.\\w]+(?=\\s*=)",
+					"name": "entity.name.tag.glyphs"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.glyphs",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.glyphs",
+							"match": "\\\\(?:[\"\\\\/bfnrt]|[uU][0-9a-fA-F]{4,6}|0[0-8]{2})"
+						}
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "-?(?:\\d+\\.\\d*|\\.\\d+)",
+					"name": "constant.numeric.float.glyphs"
+				},
+				{
+					"match": "\\b[0-9a-fA-F]{4,6}\\b",
+					"name": "constant.numeric.hex.glyphs"
+				},
+				{
+					"match": "(?<=\\s|^)-?\\d+\\b",
+					"name": "constant.numeric.int.glyphs"
+				}
+			]
+		},
+		"unquoted-strings": {
+			"patterns": [
+				{
+					"match": "[\\w\\$\\+\\-\\./:]+",
+					"name": "string.unquoted.glyphs"
+				}
+			]
+		}
+	},
+	"scopeName": "source.plist.glyphs"
+}
