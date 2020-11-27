@@ -2,7 +2,7 @@
     "name": "vscode-glyphs",
     "displayName": "vscode-glyphs",
     "description": "Glyphs support for VS Code",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "xiangdong-zeng",
     "author": {
         "name": "Xiangdong Zeng"
